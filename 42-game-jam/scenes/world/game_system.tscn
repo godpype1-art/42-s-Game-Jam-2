@@ -27,6 +27,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2lrpr")
 shape = SubResource("WorldBoundaryShape3D_ep5c2")
 
 [node name="Character" parent="World" unique_id=1905391800 instance=ExtResource("2_ep5c2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Light" type="DirectionalLight3D" parent="World" unique_id=783536286]
 transform = Transform3D(1, 0, 0, 0, 0.6793645, 0.73380107, 0, -0.73380107, 0.6793645, -3.011596, 8.777987, 5.637897)

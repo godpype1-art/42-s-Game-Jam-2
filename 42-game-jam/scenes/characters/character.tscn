@@ -12,7 +12,9 @@ shape = SubResource("CapsuleShape3D_f826p")
 [node name="Character_Mesh" type="MeshInstance3D" parent="." unique_id=985487289]
 mesh = SubResource("CapsuleMesh_x31xa")
 
-[node name="Camera_Arm" type="Node3D" parent="." unique_id=1041922896]
+[node name="Camera_Arm" type="SpringArm3D" parent="." unique_id=976225759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+spring_length = 6.0
 
 [node name="Camera" type="Camera3D" parent="Camera_Arm" unique_id=2107694655]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 8, 6)
+transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, 0, 0, 0)
