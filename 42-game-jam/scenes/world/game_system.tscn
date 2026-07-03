@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://yo68tj4ufdud"]
 
+[ext_resource type="Script" uid="uid://140f3s6nwg54" path="res://scripts/systems/game_system.gd" id="1_vaiy4"]
+[ext_resource type="PackedScene" uid="uid://dkkidv8hso5ib" path="res://scenes/characters/character.tscn" id="2_ep5c2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2lrpr"]
+size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lrpr"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ep5c2"]
+
 [node name="GameSystem" type="Node" unique_id=38076797]
+script = ExtResource("1_vaiy4")
+
+[node name="World" type="Node3D" parent="." unique_id=1932818312]
+
+[node name="Ground_Mesh" type="MeshInstance3D" parent="World" unique_id=619140267]
+transform = Transform3D(0.9989378, -0.02176462, 0.040614758, 0.022768052, 0.99944276, -0.024409167, -0.040060867, 0.02530796, 0.9988767, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2lrpr")
+surface_material_override/0 = SubResource("StandardMaterial3D_2lrpr")
+
+[node name="Ground_Body" type="StaticBody3D" parent="World" unique_id=696266521]
+
+[node name="Ground_Shape" type="CollisionShape3D" parent="World/Ground_Body" unique_id=1607506796]
+shape = SubResource("WorldBoundaryShape3D_ep5c2")
+
+[node name="Character" parent="World" unique_id=1905391800 instance=ExtResource("2_ep5c2")]
+
+[node name="Light" type="DirectionalLight3D" parent="World" unique_id=783536286]
+transform = Transform3D(1, 0, 0, 0, 0.6793645, 0.73380107, 0, -0.73380107, 0.6793645, -3.011596, 8.777987, 5.637897)
+
+[node name="UI" type="Control" parent="." unique_id=217584598]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
