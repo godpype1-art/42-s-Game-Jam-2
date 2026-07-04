@@ -12,6 +12,7 @@
 script = ExtResource("1_x31xa")
 
 [node name="Collision_Shape" type="CollisionShape3D" parent="." unique_id=825038698]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_f826p")
 
 [node name="Character_Mesh" type="MeshInstance3D" parent="." unique_id=985487289]

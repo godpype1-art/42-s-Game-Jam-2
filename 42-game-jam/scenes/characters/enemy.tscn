@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://rnr4gllyw6xa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rxn32"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7jb55"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fulqv"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1096362980]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1197058430]
+shape = SubResource("CapsuleShape3D_rxn32")
+
+[node name="Character_Mesh" type="MeshInstance3D" parent="." unique_id=2106294563]
+mesh = SubResource("CapsuleMesh_7jb55")
+surface_material_override/0 = SubResource("StandardMaterial3D_fulqv")
