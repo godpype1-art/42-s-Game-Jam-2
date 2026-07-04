@@ -9,6 +9,8 @@ const	SPEED: float = 7.0
 const	JUMP_VELOCITY = 4.5
 const	MOUSE_SENSITIVITY: float = 0.003
 
+
+
 # ====================================== HELPER FUNCTIONS ========================================== #
 
 func	resolve_movement(delta: float) -> Vector3:
@@ -27,8 +29,8 @@ func	resolve_movement(delta: float) -> Vector3:
 	direction = (forward * -input_dir.y + right * input_dir.x)
 	if direction:
 
-		velocity.x = (forward * -input_dir.y + right * input_dir.x).x * SPEED
-		velocity.z = (forward * -input_dir.y + right * input_dir.x).z * SPEED
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
 
 
 	else:

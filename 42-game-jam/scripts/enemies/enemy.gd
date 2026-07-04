@@ -1,15 +1,48 @@
 extends CharacterBody3D
 
 
-const	SPEED = 5.0
-const	JUMP_VELOCITY = 4.5
+@export	var	hp: int
+@export	var	speed: int
+@export	var	damage: int
+
+var player: CharacterBody3D = null
+
+
+# ====================================== HELPER FUNCTIONS ========================================== #
+
+func	setup(reference: CharacterBody3D) -> void:
+	
+	player = reference
+
+
+func	resolve_direction() -> Vector3:
+	
+	var direction: Vector3
+
+	direction.x = player.position.x - self.position.x
+	direction.z = player.position.z - self.position.z
+	direction.y = 0
+	direction = direction.normalized()
+	return direction
+
+
+func	resolve_movement(direction: Vector3) -> void:
+
+	velocity.x = direction.x * speed
+	velocity.z = direction.z * speed
+	move_and_slide()
+
+# ====================================== ENGINE CALLBACKS ========================================== #
 
 
 func _physics_process(delta: float) -> void:
 
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	var direction: Vector3
 
+	if player:
 
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		direction = resolve_direction()
+		resolve_movement(direction)
 
-	move_and_slide()
