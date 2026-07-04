@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 
 const	SPEED: float = 7.0
-const	GRAVITY: float = 9.8
+const	JUMP_VELOCITY = 4.5
 const	MOUSE_SENSITIVITY: float = 0.003
 
 # ====================================== HELPER FUNCTIONS ========================================== #
@@ -18,7 +18,7 @@ func	resolve_movement(delta: float) -> Vector3:
 	var	right: Vector3 = camera_arm.global_transform.basis.x
 
 	if not is_on_floor():
-		velocity.y -= GRAVITY * delta
+		velocity += get_gravity() * delta
 	forward.y = 0.0
 	right.y = 0.0
 	forward = forward.normalized()
@@ -69,5 +69,7 @@ func _physics_process(delta: float) -> void:
 
 	var	current_velocity: Vector3
 
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 	current_velocity = resolve_movement(delta)
 	resolve_characters_rotation(current_velocity)

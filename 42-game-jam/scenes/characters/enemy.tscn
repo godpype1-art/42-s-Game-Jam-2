@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://rnr4gllyw6xa"]
 
+[ext_resource type="Script" uid="uid://w8048e5rt1ho" path="res://scripts/enemies/enemy.gd" id="1_7jb55"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rxn32"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7jb55"]
@@ -8,6 +10,7 @@
 albedo_color = Color(1, 0, 0, 1)
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1096362980]
+script = ExtResource("1_7jb55")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1197058430]
 shape = SubResource("CapsuleShape3D_rxn32")
