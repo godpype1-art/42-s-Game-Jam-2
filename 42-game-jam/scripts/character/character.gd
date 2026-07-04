@@ -16,6 +16,7 @@ func	resolve_movement(delta: float) -> Vector3:
 	var	input_dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var	forward: Vector3 = -camera_arm.global_transform.basis.z
 	var	right: Vector3 = camera_arm.global_transform.basis.x
+	var	direction: Vector3
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -23,9 +24,17 @@ func	resolve_movement(delta: float) -> Vector3:
 	right.y = 0.0
 	forward = forward.normalized()
 	right = right.normalized()
+	direction = (forward * -input_dir.y + right * input_dir.x)
+	if direction:
 
-	velocity.x = (forward * -input_dir.y + right * input_dir.x).x * SPEED
-	velocity.z = (forward * -input_dir.y + right * input_dir.x).z * SPEED
+		velocity.x = (forward * -input_dir.y + right * input_dir.x).x * SPEED
+		velocity.z = (forward * -input_dir.y + right * input_dir.x).z * SPEED
+
+
+	else:
+
+		velocity.x = move_toward(velocity.x, 0, 0.2)
+		velocity.z = move_toward(velocity.z, 0, 0.2)
 
 	move_and_slide()
 	return velocity
