@@ -1,0 +1,82 @@
+TEMA - "You are the villain"
+
+IDEIA - MEGABONK + VAMPIRE SUVIVORS SURVIVAL GAME
+
+3D
+1 level
+city level (like gta)
+	- grid?
+	- buldings
+	- *taco ticklers
+	- smaller houses
+	- trees
+	- delimited by water or construction roadblocks
+	-
+
+
+character
+
+- can only have one weapon
+- may use passive items
+- *stamina bar
+- *super meter charged with kills, when full, clear all enemies around
+-
+-
+
+
+
+enemies
+
+3 types : civilian
+	  *police man
+	  *military
+
+
+civilian
+
+- run at you
+- low hp
+- slow movespeed
+- high number
+- no weapon/bat
+
+*police
+
+- high hp
+- slow move speed
+- may have gun
+- appears in groups
+
+*military
+
+- high hp
+- fast move speed
+- all have automatic rifle
+- appears isolated
+
+
+
+LEVEL DESIGN
+
+- menu:
+	- start game button
+	-
+- starts level
+- clock counting time
+- characters moves around, dodging hordes of enemies
+- *there are drops around the map for the player to pick up
+- ui:
+	- *minimap
+	- *gears equiped
+	- kill count
+	- score count
+	- health bar
+	- *pop ups(lvls up, hp lost and gained, ?dmg?) 
+	- pause button:
+		- pause ui
+		- unpause button
+		- *options button
+		- exit button
+
+
+

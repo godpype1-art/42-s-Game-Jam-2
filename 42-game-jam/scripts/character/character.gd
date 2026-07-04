@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
 
-@onready var camera_arm: SpringArm3D = $Camera_Arm
+@onready var	camera_arm: SpringArm3D = $Camera_Arm
+@onready var	character_mesh: MeshInstance3D = $Character_Mesh
 
 
 const	SPEED: float = 7.0
@@ -46,8 +47,10 @@ func	resolve_characters_rotation(current_velocity: Vector3) -> void:
 
 	var	direction: float
 
+	if current_velocity.x == 0 and current_velocity.z == 0:
+		return
 	direction = atan2(current_velocity.x, current_velocity.z)
-	rotation.y = -direction
+	character_mesh.rotation.y = lerp_angle(character_mesh.rotation.y, direction, 0.3)
 
 
 # ====================================== ENGINE CALLBACKS ========================================== #
@@ -66,7 +69,5 @@ func _physics_process(delta: float) -> void:
 
 	var	current_velocity: Vector3
 
-	move_and_slide()
-
 	current_velocity = resolve_movement(delta)
-	#resolve_characters_rotation(current_velocity)
+	resolve_characters_rotation(current_velocity)
