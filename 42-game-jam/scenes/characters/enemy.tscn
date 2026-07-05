@@ -10,12 +10,12 @@
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7jb55"]
-radius = 0.8
+radius = 0.7
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1096362980]
 script = ExtResource("1_7jb55")
 hp = 100
-speed = 5
+speed = 3
 damage = 10
 
 [node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1197058430]
