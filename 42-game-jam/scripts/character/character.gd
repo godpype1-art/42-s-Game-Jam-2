@@ -11,9 +11,17 @@ const	MOUSE_SENSITIVITY: float = 0.003
 
 @export var	hp: int = 150
 
+var 	start_position: Vector3
+
 signal	game_over
 
 # ====================================== HELPER FUNCTIONS ========================================== #
+
+func	reset() -> void:
+	
+	hp = 150
+	global_position = start_position
+
 
 func	take_damage(damage: int) -> void:
 
@@ -76,7 +84,9 @@ func	resolve_characters_rotation(current_velocity: Vector3) -> void:
 
 # ====================================== ENGINE CALLBACKS ========================================== #
 
-#func _ready() -> void:
+func _ready() -> void:
+
+	start_position = global_position
 
 
 func _input(event: InputEvent) -> void:
