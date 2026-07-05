@@ -9,10 +9,14 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fulqv"]
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_7jb55"]
+radius = 0.8
+
 [node name="Enemy" type="CharacterBody3D" unique_id=1096362980]
 script = ExtResource("1_7jb55")
 hp = 100
 speed = 5
+damage = 10
 
 [node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1197058430]
 shape = SubResource("CapsuleShape3D_rxn32")
@@ -20,3 +24,15 @@ shape = SubResource("CapsuleShape3D_rxn32")
 [node name="Character_Mesh" type="MeshInstance3D" parent="." unique_id=2106294563]
 mesh = SubResource("CapsuleMesh_7jb55")
 surface_material_override/0 = SubResource("StandardMaterial3D_fulqv")
+
+[node name="Damage_Zone" type="Area3D" parent="." unique_id=1364338828]
+
+[node name="Damage_Shape" type="CollisionShape3D" parent="Damage_Zone" unique_id=1046202698]
+shape = SubResource("SphereShape3D_7jb55")
+
+[node name="Damage_Timer" type="Timer" parent="." unique_id=1504915901]
+wait_time = 0.5
+
+[connection signal="body_entered" from="Damage_Zone" to="." method="_on_damage_zone_body_entered"]
+[connection signal="body_exited" from="Damage_Zone" to="." method="_on_damage_zone_body_exited"]
+[connection signal="timeout" from="Damage_Timer" to="." method="_on_damage_timer_timeout"]

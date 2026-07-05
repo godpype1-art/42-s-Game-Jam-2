@@ -39,10 +39,4 @@ autostart = true
 
 [node name="Enemies_Container" type="Node3D" parent="World" unique_id=418166441]
 
-[node name="UI" type="Control" parent="." unique_id=217584598]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [connection signal="timeout" from="World/Spawn_Timer" to="World" method="_on_timer_timeout"]

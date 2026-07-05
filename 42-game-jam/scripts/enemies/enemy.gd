@@ -1,12 +1,13 @@
 extends CharacterBody3D
 
+@onready var damage_timer: Timer = $Damage_Timer
 
 @export	var	hp: int
 @export	var	speed: int
 @export	var	damage: int
 
 var player: CharacterBody3D
-
+var	player_in_range: bool = false
 
 # ====================================== HELPER FUNCTIONS ========================================== #
 
@@ -46,3 +47,23 @@ func _physics_process(delta: float) -> void:
 		direction = resolve_direction()
 		resolve_movement(direction)
 
+
+# ====================================== SIGNAL CALLBACKS ========================================== #
+
+
+func _on_damage_zone_body_entered(_body: Node3D) -> void:
+	
+	player_in_range = true
+	damage_timer.start()
+
+
+func	_on_damage_zone_body_exited(_body: Node3D) -> void:
+
+	player_in_range = false
+	damage_timer.stop()
+
+
+func _on_damage_timer_timeout() -> void:
+	
+	if player_in_range:
+		player.take_damage(damage)

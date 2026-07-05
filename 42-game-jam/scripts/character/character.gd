@@ -9,9 +9,19 @@ const	SPEED: float = 7.0
 const	JUMP_VELOCITY = 4.5
 const	MOUSE_SENSITIVITY: float = 0.003
 
+@export var	hp: int = 150
 
+signal	game_over
 
 # ====================================== HELPER FUNCTIONS ========================================== #
+
+func	take_damage(damage: int) -> void:
+
+	hp = hp - damage
+	print("you took damage")
+	if hp <= 0:
+		game_over.emit()
+
 
 func	resolve_movement(delta: float) -> Vector3:
 

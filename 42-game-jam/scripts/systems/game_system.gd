@@ -4,7 +4,8 @@ enum GameState
 {
 	MENU,
 	PLAYING,
-	PAUSE
+	PAUSE,
+	GAMEOVER
 }
 
 signal	state_changed(old_state: GameState, new_state: GameState)
@@ -36,11 +37,17 @@ func	print_game_state() -> void:
 
 # ====================================== ENGINE CALLBACKS ========================================== #
 
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
+
+func _ready() -> void:
+	$World/Character.game_over.connect(_on_character_game_over)
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 
+# ====================================== SIGNAL CALLBACKS ========================================== #
+
+func	_on_character_game_over() -> void:
+	
+	change_state(GameState.GAMEOVER)
