@@ -8,8 +8,8 @@ extends Control
 @onready var	game_over: Control = $Game_Over_Screen
 @onready var	character: CharacterBody3D = game_system.get_node("World/Character")
 @onready var	hp_bar: ProgressBar = $HUD/HPBar
-@onready var	timer_label: Label = $HUD/TimerLabel
-@onready var	kill_label: Label = $HUD/KillLabel
+@onready var	timer_label: Label = $HUD/Timer
+@onready var	kill_label: Label = $HUD/Kill_Count
 
 var	elapsed_time: float = 0.0
 var	kill_count: int = 0

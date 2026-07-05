@@ -17,26 +17,38 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HPBar" type="ProgressBar" parent="HUD" unique_id=1026008312]
-layout_mode = 0
-offset_right = 4.0
-offset_bottom = 27.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 200.0
+offset_bottom = -7.0
+grow_vertical = 0
 max_value = 150.0
 value = 150.0
 show_percentage = false
 
-[node name="KillCount" type="Label" parent="HUD" unique_id=452767725]
-layout_mode = 0
+[node name="Kill_Count" type="Label" parent="HUD" unique_id=452767725]
+layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Timer" type="Label" parent="HUD" unique_id=1284150419]
-layout_mode = 0
-offset_right = 40.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 23.0
+grow_horizontal = 2
 
 [node name="Main_Menu" type="Control" parent="." unique_id=598414187]
 process_mode = 3
