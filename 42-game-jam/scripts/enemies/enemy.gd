@@ -51,16 +51,23 @@ func _physics_process(delta: float) -> void:
 # ====================================== SIGNAL CALLBACKS ========================================== #
 
 
-func _on_damage_zone_body_entered(_body: Node3D) -> void:
+func _on_damage_zone_body_entered(body: Node3D) -> void:
 	
-	player_in_range = true
-	damage_timer.start()
+	if body == player:
+
+		player_in_range = true
+		player.take_damage(damage)
+		damage_timer.start()
 
 
-func	_on_damage_zone_body_exited(_body: Node3D) -> void:
 
-	player_in_range = false
-	damage_timer.stop()
+func	_on_damage_zone_body_exited(body: Node3D) -> void:
+
+	if body == player:
+
+		player_in_range = false
+		damage_timer.stop()
+
 
 
 func _on_damage_timer_timeout() -> void:
