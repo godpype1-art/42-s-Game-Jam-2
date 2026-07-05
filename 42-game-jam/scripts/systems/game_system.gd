@@ -75,9 +75,9 @@ func _ready() -> void:
 
 func	_input(event: InputEvent) -> void:
 	
-	if event.is_action_pressed("ui_cancel") and current_state == GameState.PLAYING:
+	if event.is_action_pressed("Pause") and current_state == GameState.PLAYING:
 		change_state(GameState.PAUSE)
-	elif event.is_action_pressed("ui_cancel") and current_state == GameState.PAUSE:
+	elif event.is_action_pressed("Pause") and current_state == GameState.PAUSE:
 		change_state(GameState.PLAYING)
 	else:
 		return
