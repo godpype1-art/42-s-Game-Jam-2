@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://140f3s6nwg54" path="res://scripts/systems/game_system.gd" id="1_vaiy4"]
 [ext_resource type="PackedScene" uid="uid://dkkidv8hso5ib" path="res://scenes/characters/character.tscn" id="2_ep5c2"]
+[ext_resource type="PackedScene" uid="uid://dofjh7833crsj" path="res://animations/cac-1783269107380.gltf" id="3_mxorh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2lrpr"]
 size = Vector2(50, 50)
@@ -37,3 +38,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="AuxScene" parent="." unique_id=588925685 instance=ExtResource("3_mxorh")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 1.0077525, 1.4694602)
