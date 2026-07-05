@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://dkkidv8hso5ib"]
 
 [ext_resource type="Script" uid="uid://daydpy63nkemt" path="res://scripts/character/character.gd" id="1_x31xa"]
+[ext_resource type="PackedScene" uid="uid://revwqe2t6ric" path="res://models/cac-1783265921555.gltf" id="2_1bdar"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f826p"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_x31xa"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_x31xa"]
 
 [node name="Character" type="CharacterBody3D" unique_id=1905391800]
 script = ExtResource("1_x31xa")
@@ -15,16 +12,72 @@ script = ExtResource("1_x31xa")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_f826p")
 
-[node name="Character_Mesh" type="MeshInstance3D" parent="." unique_id=985487289]
-mesh = SubResource("BoxMesh_x31xa")
-
-[node name="Nose" type="MeshInstance3D" parent="Character_Mesh" unique_id=963973173]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.5270736)
-mesh = SubResource("PrismMesh_x31xa")
-
 [node name="Camera_Arm" type="SpringArm3D" parent="." unique_id=976225759]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 spring_length = 6.0
 
 [node name="Camera" type="Camera3D" parent="Camera_Arm" unique_id=2107694655]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
+
+[node name="Character_Model" parent="." unique_id=1166704576 instance=ExtResource("2_1bdar")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0.4, 0)
+
+[node name="Skeleton3D" parent="Character_Model/Node" parent_id_path=PackedInt32Array(1166704576, 45437043) index="0" unique_id=548609765]
+bones/0/position = Vector3(-0.013176918, 103.7905, 0.0044869184)
+bones/0/rotation = Quaternion(-0.061036445, -0.0097421985, -0.054280903, 0.9966109)
+bones/2/rotation = Quaternion(0.078424886, -0.005691298, 0.03254439, 0.99637246)
+bones/4/rotation = Quaternion(-0.0331384, -2.8343711e-05, 0.0028026039, 0.9994469)
+bones/6/rotation = Quaternion(0.06926414, -3.83341e-05, 0.0028150408, 0.9975945)
+bones/8/rotation = Quaternion(0.59895086, -0.44174123, 0.5166277, 0.42334193)
+bones/10/rotation = Quaternion(0.51126087, 0.0788954, -0.05712542, 0.853888)
+bones/12/rotation = Quaternion(0.022161318, -0.0013935876, -0.062741436, 0.99778277)
+bones/14/rotation = Quaternion(0.0355396, 0.04176805, 0.0065538012, 0.99847364)
+bones/16/rotation = Quaternion(0.06062179, -0.32748494, -0.2642582, 0.9051223)
+bones/18/rotation = Quaternion(0.17263903, -0.04445589, 0.123145044, 0.9762453)
+bones/20/rotation = Quaternion(0.030076578, -0.0034363198, 0.09897571, 0.99462926)
+bones/24/rotation = Quaternion(0.038569912, 0.011199504, -0.046467695, 0.9981121)
+bones/26/rotation = Quaternion(0.22558251, 0.00037335043, 0.0004089144, 0.9742239)
+bones/28/rotation = Quaternion(0.004226414, 8.3649844e-05, 0.016933193, 0.9998477)
+bones/32/rotation = Quaternion(0.2323474, -0.012438361, 0.019649213, 0.9723549)
+bones/34/rotation = Quaternion(0.08828508, -4.1456374e-06, 3.9994615e-05, 0.99609524)
+bones/36/rotation = Quaternion(0.08840399, 1.227927e-06, 4.206752e-05, 0.99608475)
+bones/40/rotation = Quaternion(0.17130591, -0.024105275, 0.039216656, 0.984142)
+bones/42/rotation = Quaternion(0.18630414, -0.004512684, 0.007121153, 0.98245597)
+bones/44/rotation = Quaternion(0.06960863, -0.0005972711, -0.008306978, 0.99753964)
+bones/48/rotation = Quaternion(0.168331, -0.014711509, 0.040768083, 0.9847773)
+bones/50/rotation = Quaternion(0.224144, -5.4224806e-06, 0.00010374434, 0.97455615)
+bones/52/rotation = Quaternion(0.20583247, 1.04817445e-07, 9.768852e-05, 0.97858727)
+bones/56/rotation = Quaternion(-0.549363, -0.49927595, 0.49233216, -0.45445886)
+bones/58/rotation = Quaternion(0.56495327, -0.05835826, 0.056123585, 0.82114077)
+bones/60/rotation = Quaternion(0.047977764, 0.0034930476, 0.072529785, 0.9962055)
+bones/62/rotation = Quaternion(-0.06652684, 0.09192347, 0.070125915, 0.99106336)
+bones/64/rotation = Quaternion(0.09294926, 0.0040594004, -0.0033871396, 0.9956569)
+bones/66/rotation = Quaternion(0.19282743, -0.011970826, -0.004949446, 0.98114717)
+bones/68/rotation = Quaternion(-0.13052991, -0.0020192224, -0.016756693, 0.99130076)
+bones/72/rotation = Quaternion(0.33411407, 0.025967972, -0.034914117, 0.9415277)
+bones/74/rotation = Quaternion(0.24751681, -0.001118919, 0.007474369, 0.9688541)
+bones/76/rotation = Quaternion(0.28536928, -0.0021732624, 0.0232434, 0.95813334)
+bones/80/rotation = Quaternion(0.3373717, 0.018443188, -0.010291816, 0.9411346)
+bones/82/rotation = Quaternion(0.10016627, 1.0521012e-05, -4.0668296e-05, 0.99497074)
+bones/84/rotation = Quaternion(-0.0040923893, -1.13083715e-05, -3.98735e-07, 0.99999166)
+bones/88/rotation = Quaternion(0.13495024, 0.1009935, 0.25374326, 0.9524721)
+bones/90/rotation = Quaternion(0.0037724061, 2.1946632e-06, -0.14679405, 0.9891599)
+bones/92/rotation = Quaternion(0.03061858, 0.0031189225, -0.08819147, 0.99562794)
+bones/96/rotation = Quaternion(0.39495483, -3.0317036e-05, -0.0001611305, 0.9187005)
+bones/98/rotation = Quaternion(0.1872881, -2.2725313e-05, -8.1766324e-05, 0.98230505)
+bones/100/rotation = Quaternion(0.13527659, 1.25116585e-05, -5.601627e-05, 0.9908079)
+bones/104/rotation = Quaternion(-0.11020419, -0.008612909, 0.02979626, 0.993425)
+bones/106/rotation = Quaternion(0.12307811, 0.0040533096, 0.004627495, 0.99237794)
+bones/110/rotation = Quaternion(0.08956531, 0.044649303, 0.9858954, -0.13414465)
+bones/112/rotation = Quaternion(-0.2109204, -0.011796974, 0.031643897, 0.9769198)
+bones/114/rotation = Quaternion(0.33880478, -0.045869365, -0.06673146, 0.9373656)
+bones/116/rotation = Quaternion(0.51120716, -0.010082764, -0.012830348, 0.85930264)
+bones/120/rotation = Quaternion(-0.09214431, -0.03583937, 0.992337, -0.07411029)
+bones/122/rotation = Quaternion(-0.11680481, 0.051463254, -0.0034601963, 0.9918146)
+bones/124/rotation = Quaternion(0.33643416, 0.018863007, -0.040206213, 0.9406592)
+bones/126/rotation = Quaternion(0.51119804, 0.010076074, 0.012818346, 0.8593083)
+
+[node name="AnimationPlayer" parent="Character_Model" index="1" unique_id=1090655468]
+root_motion_local = true
+
+[editable path="Character_Model"]

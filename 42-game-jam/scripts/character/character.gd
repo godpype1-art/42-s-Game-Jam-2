@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 
 @onready var	camera_arm: SpringArm3D = $Camera_Arm
-@onready var	character_mesh: MeshInstance3D = $Character_Mesh
+@onready var	character_model: Node3D = $Character_Model
+@onready var	anim_player: AnimationPlayer = $Character_Model/AnimationPlayer
 
 
 const	SPEED: float = 7.0
@@ -16,6 +17,20 @@ signal	game_over
 var 	start_position: Vector3
 
 # ====================================== HELPER FUNCTIONS ========================================== #
+
+func	resolve_animation(current_velocity: Vector3) -> void:
+
+	if current_velocity.x == 0 and current_velocity.z == 0:
+
+		if anim_player.current_animation != "Greatswordidle":
+			anim_player.play("Greatswordidle")
+
+	else:
+
+		if anim_player.current_animation != "Greatswordrun(2)":
+			anim_player.play("Greatswordrun(2)")
+
+
 
 func	reset() -> void:
 	
@@ -79,7 +94,7 @@ func	resolve_characters_rotation(current_velocity: Vector3) -> void:
 	if current_velocity.x == 0 and current_velocity.z == 0:
 		return
 	direction = atan2(current_velocity.x, current_velocity.z)
-	character_mesh.rotation.y = lerp_angle(character_mesh.rotation.y, direction, 0.3)
+	character_model.rotation.y = lerp_angle(character_model.rotation.y, direction, 0.3)
 
 
 # ====================================== ENGINE CALLBACKS ========================================== #
@@ -87,6 +102,7 @@ func	resolve_characters_rotation(current_velocity: Vector3) -> void:
 func _ready() -> void:
 
 	start_position = global_position
+	print(anim_player.get_animation_list())
 
 
 func _input(event: InputEvent) -> void:
@@ -101,4 +117,5 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	current_velocity = resolve_movement(delta)
+	resolve_animation(current_velocity)
 	resolve_characters_rotation(current_velocity)
