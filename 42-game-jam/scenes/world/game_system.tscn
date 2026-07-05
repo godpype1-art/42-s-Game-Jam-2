@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://140f3s6nwg54" path="res://scripts/systems/game_system.gd" id="1_vaiy4"]
 [ext_resource type="PackedScene" uid="uid://dkkidv8hso5ib" path="res://scenes/characters/character.tscn" id="2_ep5c2"]
 [ext_resource type="Script" uid="uid://dgpm3kuhojcs4" path="res://scripts/systems/spawner.gd" id="2_mxorh"]
+[ext_resource type="PackedScene" uid="uid://dxh7awp8o335h" path="res://scenes/ui/ui.tscn" id="4_as7p1"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2lrpr"]
 size = Vector2(50, 50)
@@ -13,9 +14,11 @@ albedo_color = Color(0, 1, 0, 1)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ep5c2"]
 
 [node name="GameSystem" type="Node" unique_id=38076797]
+process_mode = 3
 script = ExtResource("1_vaiy4")
 
 [node name="World" type="Node3D" parent="." unique_id=1932818312]
+process_mode = 1
 script = ExtResource("2_mxorh")
 
 [node name="Ground_Mesh" type="MeshInstance3D" parent="World" unique_id=619140267]
@@ -38,5 +41,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="Enemies_Container" type="Node3D" parent="World" unique_id=418166441]
+
+[node name="UI" parent="." unique_id=2095161547 instance=ExtResource("4_as7p1")]
 
 [connection signal="timeout" from="World/Spawn_Timer" to="World" method="_on_timer_timeout"]

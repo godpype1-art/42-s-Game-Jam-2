@@ -1,7 +1,72 @@
 [gd_scene format=3 uid="uid://dxh7awp8o335h"]
 
+[ext_resource type="Script" uid="uid://bs3ucsqm2jfqd" path="res://scripts/ui/ui.gd" id="1_u7n8c"]
+
 [node name="UI" type="Control" unique_id=2095161547]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_u7n8c")
+
+[node name="HUD" type="Control" parent="." unique_id=13059409]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main_Menu" type="Control" parent="." unique_id=598414187]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_Menu" unique_id=549969111]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 83.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start_Button" type="Button" parent="Main_Menu/VBoxContainer" unique_id=795478803]
+layout_mode = 2
+text = "START"
+
+[node name="Label" type="Label" parent="Main_Menu/VBoxContainer" unique_id=329806842]
+layout_mode = 2
+text = "42 GAME JAM"
+
+[node name="Pause_Menu" type="Control" parent="." unique_id=2048218560]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game_Over_Screen" type="Control" parent="." unique_id=47513366]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Main_Menu/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]

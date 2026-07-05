@@ -76,9 +76,7 @@ func	resolve_characters_rotation(current_velocity: Vector3) -> void:
 
 # ====================================== ENGINE CALLBACKS ========================================== #
 
-func _ready() -> void:
-
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
