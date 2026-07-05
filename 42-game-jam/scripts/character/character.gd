@@ -11,9 +11,9 @@ const	MOUSE_SENSITIVITY: float = 0.003
 
 @export var	hp: int = 150
 
-var 	start_position: Vector3
-
 signal	game_over
+
+var 	start_position: Vector3
 
 # ====================================== HELPER FUNCTIONS ========================================== #
 

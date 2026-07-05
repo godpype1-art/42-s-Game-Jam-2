@@ -6,10 +6,23 @@ extends CharacterBody3D
 @export	var	speed: int
 @export	var	damage: int
 
+signal	enemy_died
+
 var player: CharacterBody3D
 var	player_in_range: bool = false
 
 # ====================================== HELPER FUNCTIONS ========================================== #
+
+func	take_damage(value: int) -> void:
+
+	hp = hp - value
+	print("you took damage")
+	if hp <= 0:
+
+		enemy_died.emit()
+		self.queue_free()
+
+
 
 func	setup(reference: CharacterBody3D) -> void:
 	
@@ -32,6 +45,7 @@ func	resolve_movement(direction: Vector3) -> void:
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 	move_and_slide()
+
 
 # ====================================== ENGINE CALLBACKS ========================================== #
 
