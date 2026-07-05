@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export	var	speed: int
 @export	var	damage: int
 
-var player: CharacterBody3D = null
+var player: CharacterBody3D
 
 
 # ====================================== HELPER FUNCTIONS ========================================== #
